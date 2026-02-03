@@ -6,8 +6,6 @@
   gap: $gap;
   padding: $padding;
   width: $width-container;
-  margin: auto;
-  margin-top: $margin-top;
 
   &__day {
     margin: 0;
@@ -22,7 +20,7 @@
     font-size: $font-size;
     justify-content: center;
     align-items: center;
-    transition: transform 500ms;
+    transition: transform 500ms, background-color 500ms;
   }
 
   &__day:hover {
@@ -42,6 +40,14 @@
   .calendar--start-day-#{$day} {
     .calendar__day:first-child {
       margin-left: $offset * $square-size;
+    }
+  }
+}
+
+@for $days from 28 through 31 {
+  .calendar--month-length-#{$days} {
+    .calendar__day:nth-child(n + #{$days + 1}) {
+      display: none;
     }
   }
 }
